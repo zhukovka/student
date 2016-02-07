@@ -2,13 +2,30 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>Student Webcamp {% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+        <link rel="stylesheet"
+              href="{{ asset('external/bower_components/foundation-sites/dist/foundation.min.css') }}"/>
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans|Roboto&subset=latin,cyrillic' rel='stylesheet'
+              type='text/css'>
+        <link rel="stylesheet" href="{{ asset('external/css/main.css') }}"/>
 
     </head>
     <body>
+    <header class="header">
+        <div class="header__top">
+            <div class="grid pos-r">
+                <div class="grid__left w_m-30 w_l-40">
+                    <a class="student header__logo show-for-medium" href="/"><img
+                                src="{{ asset('external/img/icons/logo.svg') }}" alt=""/> Student</a>
+                    <a class="header__logo show-for-small-only" href="/"><img
+                                src="{{ asset('external/img/icons/icon.svg') }}" alt=""/></a>
+                </div>
+                {{ include('parts/navigation.html.twig') }}
+            </div>
+        </div>
+    </header>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
